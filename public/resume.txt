@@ -1,0 +1,30 @@
+HARSHWARDHAN JADHAV
+AWS Cloud & DevOps Engineer
+
+Contact: +91 XXXXX XXXXX
+Email: your.email@example.com
+LinkedIn: https://linkedin.com/in/your-profile
+
+SUMMARY
+Passionate AWS Cloud & DevOps Engineer with expertise in building scalable, 
+high-availability systems using cutting-edge technologies like Docker, 
+Kubernetes, Terraform, and CI/CD pipelines.
+
+SKILLS
+- AWS Cloud Services (EC2, EKS, S3, Lambda, etc.)
+- Docker & Kubernetes
+- Terraform & Infrastructure as Code
+- CI/CD Pipelines
+- DevOps Best Practices
+- System Architecture & Design
+
+EXPERIENCE
+[Add your experience details here]
+
+EDUCATION
+[Add your education details here]
+
+CERTIFICATIONS
+[Add your AWS/Cloud certifications here]
+
+Note: Please replace this text file with your actual PDF resume.
