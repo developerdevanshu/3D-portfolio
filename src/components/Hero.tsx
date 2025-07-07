@@ -27,12 +27,12 @@ const Hero: React.FC = () => {
     // Initial setup
     gsap.set([headingRef.current, jobTitleRef.current, subtitleRef.current, contactRef.current, ctaRef.current, linkedinRef.current, profileRef.current], {
       opacity: 0,
-      y: 20,
-      filter: "blur(3px)"
+      y: 10,
+      filter: "blur(1px)"
     });
 
     // Animate in sequence
-    const tl = gsap.timeline({ delay: 0.1 });
+    const tl = gsap.timeline({ delay: 0 });
     
     tl.to(headingRef.current, {
       opacity: 1,
@@ -62,27 +62,14 @@ const Hero: React.FC = () => {
       duration: 1,
       ease: "power3.out"
     }, "-=0.6")
-    .to(profileRef.current, {
+    .to([profileRef.current, ctaRef.current, linkedinRef.current], {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      duration: 0.6,
-      ease: "power2.out"
-    }, "-=0.4")
-    .to(ctaRef.current, {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: 0.4,
-      ease: "power2.out"
-    }, "-=0.3")
-    .to(linkedinRef.current, {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: 0.4,
-      ease: "power2.out"
-    }, "-=0.3");
+      duration: 0.3,
+      ease: "power1.out",
+      stagger: 0.1
+    }, "-=0.2");
 
     // Profile picture floating animation (constrained to avoid header)
     gsap.to(profileRef.current, {
@@ -119,59 +106,65 @@ const Hero: React.FC = () => {
       });
     }
 
-    // Isolated floating animations with separate ranges
+    // Visible floating animations with independent ranges
     gsap.to(headingRef.current, {
-      y: -2,
-      duration: 6,
+      y: -8,
+      x: 3,
+      duration: 8,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
+      ease: "sine.inOut",
       delay: 0
     });
 
     gsap.to(jobTitleRef.current, {
-      y: 2,
-      duration: 4.8,
+      y: 6,
+      x: -2,
+      duration: 7,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
-      delay: 0.8
+      ease: "sine.inOut",
+      delay: 1
     });
 
     gsap.to(contactRef.current, {
-      y: 3,
-      duration: 5.5,
+      y: 10,
+      x: 4,
+      duration: 9,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
-      delay: 1.5
+      ease: "sine.inOut",
+      delay: 2
     });
 
     gsap.to(subtitleRef.current, {
-      y: -1.5,
-      duration: 6.5,
+      y: -5,
+      x: -3,
+      duration: 8.5,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
+      ease: "sine.inOut",
       delay: 3
     });
 
     gsap.to(ctaRef.current, {
-      y: 2.5,
-      duration: 5,
+      y: 7,
+      x: 2,
+      duration: 7.5,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
-      delay: 4.5
+      ease: "sine.inOut",
+      delay: 4
     });
 
     gsap.to(linkedinRef.current, {
-      y: -2.5,
-      duration: 5.2,
+      y: -6,
+      x: -4,
+      duration: 8.2,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
-      delay: 6
+      ease: "sine.inOut",
+      delay: 5
     });
 
     // Floating orbs with improved performance
@@ -271,7 +264,7 @@ const Hero: React.FC = () => {
               className="text-5xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-tight"
             >
               Hi, I'm{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">
                 Harshwardhan Jadhav
               </span>
             </h1>

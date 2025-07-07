@@ -8,8 +8,6 @@ const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const toolsContainerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
-
   const tools = [
     { 
       name: 'Docker', 
@@ -20,7 +18,7 @@ const About: React.FC = () => {
     { 
       name: 'AWS EC2', 
       image: '/EC2.png',
-      position: { top: '20%', right: '15%' },
+      position: { top: '26%', left: '5%' },
       animation: { duration: 5, delay: 0 }
     },
     { 
@@ -32,7 +30,7 @@ const About: React.FC = () => {
     { 
       name: 'GitHub', 
       image: '/5847f98fcef1014c0b5e48c0.png',
-      position: { top: '60%', left: '50%' },
+      position: { top: '54%', left: '50%' },
       animation: { duration: 4.5, delay: 0 }
     },
     { 
@@ -62,7 +60,7 @@ const About: React.FC = () => {
     { 
       name: 'GCP', 
       image: '/googleCloud.png',
-      position: { top: '45%', left: '5%' },
+      position: { top: '40%', left: '19%' },
       animation: { duration: 3.6, delay: 0 }
     },
     { 
@@ -74,22 +72,12 @@ const About: React.FC = () => {
     { 
       name: 'Terraform', 
       image: '/terraform.png',
-      position: { top: '75%', right: '40%' },
+      position: { top: '70%', right: '50%' },
       animation: { duration: 3.9, delay: 0 }
     }
   ];
 
-  const skills = [
-    { name: 'Jenkins', color: 'from-red-400 to-red-500' },
-    { name: 'YAML', color: 'from-yellow-400 to-yellow-600' },
-    { name: 'ArgoCd', color: 'from-green-400 to-blue-600' },
-    { name: 'Helm', color: 'from-blue-400 to-grey-500' },
-    { name: 'Python', color: 'from-green-400 to-green-600' },
-    { name: 'AWS', color: 'from-orange-400 to-white-100' },
-    { name: 'Docker', color: 'from-blue-400 to-blue-600' },
-    { name: 'Kubernetes', color: 'from-blue-500 to-purple-600' },
-    { name: 'Terraform', color: 'from-purple-400 to-purple-600' }
-  ];
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -196,28 +184,7 @@ const About: React.FC = () => {
         }
       );
 
-      // Skills stagger animation
-      gsap.fromTo(skillsRef.current?.children || [], 
-        { 
-          y: 30, 
-          opacity: 0, 
-          scale: 0.8 
-        },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: skillsRef.current,
-            start: "top 85%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
+
 
     }, aboutRef);
 
@@ -299,29 +266,12 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            {/* Enhanced Skills Grid */}
-            <div ref={skillsRef} className="grid grid-cols-3 gap-4 mt-8">
-              {skills.map((skill, index) => (
-                <div 
-                  key={index}
-                  className="group relative p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 overflow-hidden"
-                >
-                  {/* Animated background gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                  
-                  <div className="relative flex flex-col items-center space-y-2">
-                    <div className={`w-8 h-8 rounded-lg bg-gradient-to-r ${skill.color} flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}>
-                      {skill.name.charAt(0)}
-                    </div>
-                    <span className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">
-                      {skill.name}
-                    </span>
-                  </div>
-                  
-                  {/* Hover glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`} />
-                </div>
-              ))}
+            {/* Space for new content */}
+            <div className="mt-12 p-8 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+              {/* Add your new content here */}
+              <div className="text-center text-gray-400">
+                <p>Space available for new content</p>
+              </div>
             </div>
           </div>
         </div>
