@@ -1,6 +1,22 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
+  useEffect(() => {
+    // Immediate smooth header animation on load
+    if (ref && typeof ref === 'object' && ref.current) {
+      gsap.fromTo(ref.current, 
+        { opacity: 0, y: -10 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.6, 
+          ease: "power2.out",
+          delay: 0.1
+        }
+      );
+    }
+  }, [ref]);
 
   return (
     <header ref={ref} className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-gradient-to-r from-blue-500/10 via-purple-500/8 to-cyan-500/10 backdrop-blur-lg animate-gradient" style={{ backgroundSize: '200% 200%' }}>
