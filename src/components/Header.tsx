@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 const Header = forwardRef<HTMLElement>((props, ref) => {
 
   return (
-    <header ref={ref} className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <header ref={ref} className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-gradient-to-r from-blue-500/10 via-purple-500/8 to-cyan-500/10 backdrop-blur-lg animate-gradient" style={{ backgroundSize: '200% 200%' }}>
       <nav className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold text-white">
           
