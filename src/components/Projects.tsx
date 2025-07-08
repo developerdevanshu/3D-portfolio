@@ -190,36 +190,36 @@ const Projects: React.FC = () => {
           x: window.innerWidth * 0.6,
           y: -150,
           rotation: 15,
-          duration: 15,
-          ease: "sine.inOut"
+          duration: 25,
+          ease: "power1.inOut"
         })
         .to(astronautRef.current, {
           x: window.innerWidth * 0.8,
           y: 100,
           rotation: -10,
-          duration: 18,
-          ease: "sine.inOut"
+          duration: 30,
+          ease: "power1.inOut"
         })
         .to(astronautRef.current, {
           x: window.innerWidth * 0.2,
           y: 200,
           rotation: 20,
-          duration: 16,
-          ease: "sine.inOut"
+          duration: 28,
+          ease: "power1.inOut"
         })
         .to(astronautRef.current, {
           x: window.innerWidth * 0.7,
           y: -100,
           rotation: -15,
-          duration: 14,
-          ease: "sine.inOut"
+          duration: 26,
+          ease: "power1.inOut"
         })
         .to(astronautRef.current, {
           x: 0,
           y: 0,
           rotation: 0,
-          duration: 17,
-          ease: "sine.inOut"
+          duration: 32,
+          ease: "power1.inOut"
         });
       }
 
@@ -233,14 +233,14 @@ const Projects: React.FC = () => {
   return (
     <section ref={projectsRef} className="py-20 bg-gray-900 relative overflow-hidden">
       {/* Floating Astronaut Animation - Full Page Coverage */}
-      <div ref={astronautRef} className="fixed inset-0 pointer-events-none z-0">
+      <div ref={astronautRef} className="fixed inset-0 pointer-events-none z-[1] opacity-60">
         {astronautData && (
           <Lottie 
             animationData={astronautData}
             loop={true}
             autoplay={true}
             style={{ width: '500px', height: '500px' }}
-            speed={0.2}
+            speed={0.1}
             rendererSettings={{
               preserveAspectRatio: 'xMidYMid meet',
               clearCanvas: false,
