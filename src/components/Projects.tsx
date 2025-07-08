@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, GithubLogo } from 'phosphor-react';
+import Lottie from 'lottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,11 @@ const Projects: React.FC = () => {
   const orb3Ref = useRef<HTMLDivElement>(null);
   const orb4Ref = useRef<HTMLDivElement>(null);
   const orb5Ref = useRef<HTMLDivElement>(null);
+  const orb6Ref = useRef<HTMLDivElement>(null);
+  const orb7Ref = useRef<HTMLDivElement>(null);
+  const orb8Ref = useRef<HTMLDivElement>(null);
+  const astronautRef = useRef<HTMLDivElement>(null);
+  const [astronautData, setAstronautData] = useState(null);
 
   const projects = [
     {
@@ -46,6 +52,12 @@ const Projects: React.FC = () => {
   ];
 
   useEffect(() => {
+    // Load astronaut animation
+    fetch('/astronaut.json')
+      .then(response => response.json())
+      .then(data => setAstronautData(data))
+      .catch(error => console.log('Astronaut animation loading failed:', error));
+
     const ctx = gsap.context(() => {
       // Title animation
       gsap.fromTo(".projects-title", 
@@ -137,6 +149,82 @@ const Projects: React.FC = () => {
         delay: 3.5
       });
 
+      gsap.to(orb6Ref.current, {
+        y: -35,
+        x: -25,
+        rotation: 180,
+        duration: 5.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1.5
+      });
+
+      gsap.to(orb7Ref.current, {
+        y: -40,
+        x: 20,
+        rotation: -90,
+        duration: 4.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 2.5
+      });
+
+      gsap.to(orb8Ref.current, {
+        y: -30,
+        x: -35,
+        rotation: 270,
+        duration: 6.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 4
+      });
+
+      // Very slow astronaut floating animation
+      if (astronautRef.current) {
+        const tl = gsap.timeline({ repeat: -1 });
+        
+        tl.to(astronautRef.current, {
+          x: window.innerWidth * 0.6,
+          y: -150,
+          rotation: 15,
+          duration: 15,
+          ease: "sine.inOut"
+        })
+        .to(astronautRef.current, {
+          x: window.innerWidth * 0.8,
+          y: 100,
+          rotation: -10,
+          duration: 18,
+          ease: "sine.inOut"
+        })
+        .to(astronautRef.current, {
+          x: window.innerWidth * 0.2,
+          y: 200,
+          rotation: 20,
+          duration: 16,
+          ease: "sine.inOut"
+        })
+        .to(astronautRef.current, {
+          x: window.innerWidth * 0.7,
+          y: -100,
+          rotation: -15,
+          duration: 14,
+          ease: "sine.inOut"
+        })
+        .to(astronautRef.current, {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          duration: 17,
+          ease: "sine.inOut"
+        });
+      }
+
+
+
     }, projectsRef);
 
     return () => ctx.revert();
@@ -144,19 +232,41 @@ const Projects: React.FC = () => {
 
   return (
     <section ref={projectsRef} className="py-20 bg-gray-900 relative overflow-hidden">
+      {/* Floating Astronaut Animation - Full Page Coverage */}
+      <div ref={astronautRef} className="fixed inset-0 pointer-events-none z-0">
+        {astronautData && (
+          <Lottie 
+            animationData={astronautData}
+            loop={true}
+            autoplay={true}
+            style={{ width: '500px', height: '500px' }}
+            speed={0.2}
+            rendererSettings={{
+              preserveAspectRatio: 'xMidYMid meet',
+              clearCanvas: false,
+              progressiveLoad: false,
+              hideOnTransparent: false,
+              devicePixelRatio: window.devicePixelRatio || 1
+            }}
+          />
+        )}
+      </div>
       {/* Floating Orbs */}
       <div ref={orb1Ref} className="absolute top-32 left-16 w-4 h-4 bg-blue-500 rounded-full blur-sm opacity-60 shadow-lg shadow-blue-500/50" />
       <div ref={orb2Ref} className="absolute top-64 right-24 w-3 h-3 bg-purple-500 rounded-full blur-sm opacity-50 shadow-lg shadow-purple-500/50" />
       <div ref={orb3Ref} className="absolute bottom-40 left-1/3 w-5 h-5 bg-cyan-400 rounded-full blur-sm opacity-70 shadow-lg shadow-cyan-400/50" />
       <div ref={orb4Ref} className="absolute top-1/2 right-1/5 w-6 h-6 bg-pink-500 rounded-full blur-sm opacity-55 shadow-lg shadow-pink-500/50" />
       <div ref={orb5Ref} className="absolute bottom-20 right-1/3 w-3 h-3 bg-green-400 rounded-full blur-sm opacity-65 shadow-lg shadow-green-400/50" />
+      <div ref={orb6Ref} className="absolute top-20 left-1/5 w-4 h-4 bg-orange-500 rounded-full blur-sm opacity-60 shadow-lg shadow-orange-500/50" />
+      <div ref={orb7Ref} className="absolute bottom-1/3 left-1/4 w-5 h-5 bg-teal-400 rounded-full blur-sm opacity-65 shadow-lg shadow-teal-400/50" />
+      <div ref={orb8Ref} className="absolute top-3/4 right-1/6 w-3 h-3 bg-rose-500 rounded-full blur-sm opacity-55 shadow-lg shadow-rose-500/50" />
 
       {/* Additional ambient particles */}
       <div className="absolute top-1/4 right-1/5 w-2 h-2 bg-pink-400 rounded-full opacity-40 animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-yellow-400 rounded-full opacity-50 animate-ping" />
       <div className="absolute top-3/4 left-1/6 w-3 h-3 bg-indigo-400 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '1s' }} />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-20">
         <h2 className="projects-title text-4xl md:text-5xl font-light text-white text-center mb-16">
           Featured{' '}
           <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
