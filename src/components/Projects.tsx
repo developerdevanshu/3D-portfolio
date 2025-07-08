@@ -102,10 +102,11 @@ const Projects: React.FC = () => {
         }
       );
 
-      // Floating orbs animations
+      // Enhanced floating orbs animations
       gsap.to(orb1Ref.current, {
-        y: -25,
-        x: 15,
+        y: -35,
+        x: 25,
+        rotation: 180,
         duration: 4,
         repeat: -1,
         yoyo: true,
@@ -113,8 +114,9 @@ const Projects: React.FC = () => {
       });
 
       gsap.to(orb2Ref.current, {
-        y: -35,
-        x: -20,
+        y: -45,
+        x: -30,
+        rotation: -180,
         duration: 5,
         repeat: -1,
         yoyo: true,
@@ -123,8 +125,9 @@ const Projects: React.FC = () => {
       });
 
       gsap.to(orb3Ref.current, {
-        y: -20,
-        x: 25,
+        y: -30,
+        x: 35,
+        rotation: 360,
         duration: 3.5,
         repeat: -1,
         yoyo: true,
@@ -133,8 +136,9 @@ const Projects: React.FC = () => {
       });
 
       gsap.to(orb4Ref.current, {
-        y: -40,
-        x: -30,
+        y: -50,
+        x: -40,
+        rotation: 270,
         duration: 6,
         repeat: -1,
         yoyo: true,
@@ -143,8 +147,9 @@ const Projects: React.FC = () => {
       });
 
       gsap.to(orb5Ref.current, {
-        y: -15,
-        x: 35,
+        y: -25,
+        x: 45,
+        rotation: -270,
         duration: 4.5,
         repeat: -1,
         yoyo: true,

@@ -8,6 +8,9 @@ const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const toolsContainerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const orb1Ref = useRef<HTMLDivElement>(null);
+  const orb2Ref = useRef<HTMLDivElement>(null);
+  const orb3Ref = useRef<HTMLDivElement>(null);
   const tools = [
     { 
       name: 'Docker', 
@@ -184,6 +187,36 @@ const About: React.FC = () => {
         }
       );
 
+      // Floating orbs animations
+      gsap.to(orb1Ref.current, {
+        y: -30,
+        x: 25,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(orb2Ref.current, {
+        y: -40,
+        x: -20,
+        duration: 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1
+      });
+
+      gsap.to(orb3Ref.current, {
+        y: -25,
+        x: 30,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 2
+      });
+
 
 
     }, aboutRef);
@@ -281,6 +314,11 @@ const About: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Floating Orbs */}
+      <div ref={orb1Ref} className="absolute top-28 left-16 w-4 h-4 bg-blue-500 rounded-full blur-sm opacity-60 shadow-lg shadow-blue-500/50" />
+      <div ref={orb2Ref} className="absolute top-56 right-20 w-3 h-3 bg-purple-500 rounded-full blur-sm opacity-50 shadow-lg shadow-purple-500/50" />
+      <div ref={orb3Ref} className="absolute bottom-36 left-1/4 w-5 h-5 bg-cyan-400 rounded-full blur-sm opacity-70 shadow-lg shadow-cyan-400/50" />
 
       {/* Background ambient effects */}
       <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full opacity-30 animate-pulse" />
