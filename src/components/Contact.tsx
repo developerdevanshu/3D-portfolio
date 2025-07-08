@@ -16,36 +16,36 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Form animation
+      // Smooth form animation
       gsap.fromTo(formRef.current, 
-        { y: 50, opacity: 0, filter: "blur(10px)" },
+        { y: 20, opacity: 0, filter: "blur(3px)" },
         {
           y: 0,
           opacity: 1,
           filter: "blur(0px)",
-          duration: 1.2,
-          ease: "power3.out",
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: contactRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Social icons stagger
+      // Smooth social icons animation
       gsap.fromTo(".social-icon", 
-        { y: 30, opacity: 0, scale: 0.8 },
+        { y: 15, opacity: 0, scale: 0.9 },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.1,
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.05,
           scrollTrigger: {
             trigger: contactRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none reverse"
           }
         }

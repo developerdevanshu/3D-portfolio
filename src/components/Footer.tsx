@@ -19,35 +19,35 @@ const Footer: React.FC = () => {
       .catch(error => console.log('Animation loading failed:', error));
 
     const ctx = gsap.context(() => {
-      // Footer slide up animation
+      // Smooth footer animation
       gsap.fromTo(footerRef.current, 
-        { y: 30, opacity: 0, filter: "blur(5px)" },
+        { y: 15, opacity: 0, filter: "blur(2px)" },
         {
           y: 0,
           opacity: 1,
           filter: "blur(0px)",
-          duration: 1,
-          ease: "power3.out",
+          duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: footerRef.current,
-            start: "top 90%",
+            start: "top 95%",
             toggleActions: "play none none reverse"
           }
         }
       );
 
-      // Floating particles
+      // Smooth floating particles
       if (particlesRef.current) {
         const particles = particlesRef.current.children;
         Array.from(particles).forEach((particle, index) => {
           gsap.to(particle, {
-            y: -20,
-            x: Math.random() * 40 - 20,
-            duration: 3 + Math.random() * 2,
+            y: -10,
+            x: Math.random() * 20 - 10,
+            duration: 4 + Math.random() * 2,
             repeat: -1,
             yoyo: true,
-            ease: "power1.inOut",
-            delay: index * 0.3
+            ease: "sine.inOut",
+            delay: index * 0.5
           });
         });
       }

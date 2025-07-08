@@ -18,21 +18,43 @@ const Hero: React.FC = () => {
   const lottieRef = useRef<any>(null);
 
   useEffect(() => {
-    // Load animation data
+    // Immediate scroll to top and performance optimization
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.body.style.overflow = 'hidden';
+    
+    // Load animation data with better error handling
     fetch('/animation.json')
       .then(response => response.json())
       .then(data => setAnimationData(data))
       .catch(error => console.log('Animation loading failed:', error));
 
-    // Initial setup
-    gsap.set([headingRef.current, jobTitleRef.current, subtitleRef.current, contactRef.current, ctaRef.current, linkedinRef.current, profileRef.current], {
+    // Performance-optimized initial setup
+    const elements = [headingRef.current, jobTitleRef.current, subtitleRef.current, contactRef.current, ctaRef.current, linkedinRef.current, profileRef.current].filter(Boolean);
+    
+    gsap.set(elements, {
       opacity: 0,
-      y: 10,
-      filter: "blur(1px)"
+      y: 15,
+      filter: "blur(2px)",
+      force3D: true,
+      willChange: "transform, opacity, filter"
     });
 
-    // Animate in sequence
-    const tl = gsap.timeline({ delay: 0 });
+    // Smooth synchronized entrance
+    gsap.to(elements, {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.08,
+      onComplete: () => {
+        document.body.style.overflow = 'auto';
+        gsap.set(elements, { willChange: "auto" });
+      }
+    });
+    
+    // Continue with individual animations after fade-in
+    const tl = gsap.timeline({ delay: 0.8 });
     
     tl.to(headingRef.current, {
       opacity: 1,

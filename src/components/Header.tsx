@@ -1,6 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
+
   return (
     <header ref={ref} className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
       <nav className="max-w-7xl mx-auto flex justify-between items-center">

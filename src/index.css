@@ -220,13 +220,29 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Smooth Transitions with performance optimization */
+/* Performance-optimized transitions */
 * {
   transition: all 0.3s ease;
 }
 
 a, button {
   transition: all 0.3s ease;
+  will-change: transform;
+}
+
+/* Rendering optimization */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* GPU acceleration for animations */
+.animate-spin,
+.animate-pulse,
+.animate-bounce,
+.animate-ping {
+  transform: translateZ(0);
   will-change: transform;
 }
 
