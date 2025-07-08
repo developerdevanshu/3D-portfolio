@@ -8,6 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Contact: React.FC = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const orb1Ref = useRef<HTMLDivElement>(null);
+  const orb2Ref = useRef<HTMLDivElement>(null);
+  const orb3Ref = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,6 +54,36 @@ const Contact: React.FC = () => {
         }
       );
 
+      // Floating orbs animations
+      gsap.to(orb1Ref.current, {
+        y: -30,
+        x: 20,
+        duration: 4.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(orb2Ref.current, {
+        y: -25,
+        x: -15,
+        duration: 5.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1.5
+      });
+
+      gsap.to(orb3Ref.current, {
+        y: -35,
+        x: 25,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 3
+      });
+
     }, contactRef);
 
     return () => ctx.revert();
@@ -85,7 +118,17 @@ const Contact: React.FC = () => {
 
   return (
     <section ref={contactRef} className="py-20 bg-gray-900 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6">
+      {/* Floating Orbs */}
+      <div ref={orb1Ref} className="absolute top-24 left-20 w-4 h-4 bg-blue-500 rounded-full blur-sm opacity-60 shadow-lg shadow-blue-500/50" />
+      <div ref={orb2Ref} className="absolute top-48 right-28 w-3 h-3 bg-purple-500 rounded-full blur-sm opacity-50 shadow-lg shadow-purple-500/50" />
+      <div ref={orb3Ref} className="absolute bottom-32 left-1/4 w-5 h-5 bg-cyan-400 rounded-full blur-sm opacity-70 shadow-lg shadow-cyan-400/50" />
+
+      {/* Background ambient effects */}
+      <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full opacity-30 animate-pulse" />
+      <div className="absolute bottom-32 right-16 w-3 h-3 bg-purple-400 rounded-full opacity-40 animate-bounce" />
+      <div className="absolute top-1/2 left-8 w-1 h-1 bg-cyan-400 rounded-full opacity-50 animate-ping" />
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
             Get{' '}

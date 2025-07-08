@@ -8,6 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Projects: React.FC = () => {
   const projectsRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const orb1Ref = useRef<HTMLDivElement>(null);
+  const orb2Ref = useRef<HTMLDivElement>(null);
+  const orb3Ref = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
@@ -97,14 +100,54 @@ const Projects: React.FC = () => {
         }
       );
 
+      // Floating orbs animations
+      gsap.to(orb1Ref.current, {
+        y: -25,
+        x: 15,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(orb2Ref.current, {
+        y: -35,
+        x: -20,
+        duration: 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1
+      });
+
+      gsap.to(orb3Ref.current, {
+        y: -20,
+        x: 25,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 2
+      });
+
     }, projectsRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={projectsRef} className="py-20 bg-gray-800 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={projectsRef} className="py-20 bg-gray-900 relative overflow-hidden">
+      {/* Floating Orbs */}
+      <div ref={orb1Ref} className="absolute top-32 left-16 w-4 h-4 bg-blue-500 rounded-full blur-sm opacity-60 shadow-lg shadow-blue-500/50" />
+      <div ref={orb2Ref} className="absolute top-64 right-24 w-3 h-3 bg-purple-500 rounded-full blur-sm opacity-50 shadow-lg shadow-purple-500/50" />
+      <div ref={orb3Ref} className="absolute bottom-40 left-1/3 w-5 h-5 bg-cyan-400 rounded-full blur-sm opacity-70 shadow-lg shadow-cyan-400/50" />
+
+      {/* Additional ambient particles */}
+      <div className="absolute top-1/4 right-1/5 w-2 h-2 bg-pink-400 rounded-full opacity-40 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-yellow-400 rounded-full opacity-50 animate-ping" />
+      <div className="absolute top-3/4 left-1/6 w-3 h-3 bg-indigo-400 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '1s' }} />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <h2 className="projects-title text-4xl md:text-5xl font-light text-white text-center mb-16">
           Featured{' '}
           <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
