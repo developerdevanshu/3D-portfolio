@@ -11,6 +11,8 @@ const Contact: React.FC = () => {
   const orb1Ref = useRef<HTMLDivElement>(null);
   const orb2Ref = useRef<HTMLDivElement>(null);
   const orb3Ref = useRef<HTMLDivElement>(null);
+  const orb4Ref = useRef<HTMLDivElement>(null);
+  const orb5Ref = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,6 +86,26 @@ const Contact: React.FC = () => {
         delay: 3
       });
 
+      gsap.to(orb4Ref.current, {
+        y: -28,
+        x: -40,
+        duration: 5.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 2
+      });
+
+      gsap.to(orb5Ref.current, {
+        y: -45,
+        x: 30,
+        duration: 3.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 4
+      });
+
     }, contactRef);
 
     return () => ctx.revert();
@@ -122,6 +144,8 @@ const Contact: React.FC = () => {
       <div ref={orb1Ref} className="absolute top-24 left-20 w-4 h-4 bg-blue-500 rounded-full blur-sm opacity-60 shadow-lg shadow-blue-500/50" />
       <div ref={orb2Ref} className="absolute top-48 right-28 w-3 h-3 bg-purple-500 rounded-full blur-sm opacity-50 shadow-lg shadow-purple-500/50" />
       <div ref={orb3Ref} className="absolute bottom-32 left-1/4 w-5 h-5 bg-cyan-400 rounded-full blur-sm opacity-70 shadow-lg shadow-cyan-400/50" />
+      <div ref={orb4Ref} className="absolute top-1/3 right-1/6 w-4 h-4 bg-yellow-400 rounded-full blur-sm opacity-60 shadow-lg shadow-yellow-400/50" />
+      <div ref={orb5Ref} className="absolute bottom-16 right-1/4 w-6 h-6 bg-indigo-500 rounded-full blur-sm opacity-55 shadow-lg shadow-indigo-500/50" />
 
       {/* Background ambient effects */}
       <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full opacity-30 animate-pulse" />
