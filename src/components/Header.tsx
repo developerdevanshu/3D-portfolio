@@ -1,5 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import React, { forwardRef } from 'react';
 
 const Header = forwardRef<HTMLElement>((props, ref) => {
 
