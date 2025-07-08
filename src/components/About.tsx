@@ -194,9 +194,42 @@ const About: React.FC = () => {
   return (
     <section ref={aboutRef} className="py-20 bg-gray-900 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Content */}
+          <div ref={textRef} className="space-y-8 order-2 md:order-1">
+            <h2 className="text-4xl md:text-5xl font-light text-white">
+              About{' '}
+              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Me
+              </span>
+            </h2>
+            
+            <div className="space-y-6">
+              <p className="text-xl text-gray-400 leading-relaxed">
+                My journey into cloud computing began with a simple question: <span className="text-blue-400 italic">"How can we make technology work smarter, not harder?"</span>
+              </p>
+              
+              <p className="text-lg text-gray-300 leading-relaxed">
+                As a motivated AWS Cloud and DevOps fresher, I'm driven by the endless possibilities of cloud-native technologies. 
+                What started as curiosity about serverless architectures has evolved into a passion for building resilient, 
+                scalable infrastructure that powers tomorrow's applications.
+              </p>
+              
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Through hands-on projects and comprehensive tech stack exploration, I've discovered that the real magic happens 
+                when <span className="text-purple-400 font-medium">Infrastructure as Code meets Kubernetes orchestration</span>, 
+                creating symphonies of automated deployments and self-healing systems.
+              </p>
+              
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Beyond the technical realm, I'm committed to sharing knowledge through industry summits and aspiring to become 
+                a CNCF ambassador, believing that the best technologies are those that bring communities together.
+              </p>
+            </div>
+          </div>
+
           {/* Floating Tools Container */}
-          <div ref={toolsContainerRef} className="relative h-96 md:h-[500px]">
+          <div ref={toolsContainerRef} className="relative h-96 md:h-[500px] order-1 md:order-2">
             {/* Background glow effects */}
             <div className="absolute inset-0">
               <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse" />
@@ -245,35 +278,7 @@ const About: React.FC = () => {
             <div className="absolute bottom-8 right-12 w-3 h-3 border border-blue-400/30 rounded-lg rotate-45 animate-pulse opacity-40" />
           </div>
 
-          {/* Content */}
-          <div ref={textRef} className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-light text-white">
-              About{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Me
-              </span>
-            </h2>
-            
-            <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p className="text-lg">
-                Hi, I'm Harshwardhan Jadhav — a passionate AWS Cloud & DevOps Engineer 
-                who loves building scalable, high-availability systems using cutting-edge 
-                technologies like Docker, Kubernetes, Terraform, and CI/CD.
-              </p>
-              <p className="text-lg">
-                I'm driven by innovation, cloud architecture, and crafting smooth 
-                developer experiences that empower teams to ship faster and more reliably.
-              </p>
-            </div>
 
-            {/* Space for new content */}
-            <div className="mt-12 p-8 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-              {/* Add your new content here */}
-              <div className="text-center text-gray-400">
-                <p>Space available for new content</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
