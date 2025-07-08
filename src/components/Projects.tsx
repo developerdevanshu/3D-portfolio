@@ -20,48 +20,28 @@ const Projects: React.FC = () => {
       title: "AWS Infrastructure Automation",
       description: "Scalable cloud infrastructure with Terraform and AWS services",
       image: "https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["AWS", "Terraform", "Docker", "Kubernetes"],
-      featured: true
+      tech: ["AWS", "Terraform", "Docker", "Kubernetes"]
     },
     {
       id: 2,
       title: "CI/CD Pipeline Platform",
       description: "Automated deployment pipeline with monitoring and rollback",
       image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["Jenkins", "Docker", "AWS", "Git"],
-      featured: true
+      tech: ["Jenkins", "Docker", "AWS", "Git"]
     },
     {
       id: 3,
       title: "Microservices Architecture",
       description: "Containerized microservices with service mesh",
       image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["Kubernetes", "Docker", "Istio", "Prometheus"],
-      featured: false
+      tech: ["Kubernetes", "Docker", "Istio", "Prometheus"]
     },
     {
       id: 4,
       title: "Monitoring & Observability",
       description: "Comprehensive monitoring solution with alerts",
       image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["Grafana", "Prometheus", "ELK Stack", "AWS"],
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Serverless Data Pipeline",
-      description: "Event-driven data processing with AWS Lambda",
-      image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["AWS Lambda", "S3", "DynamoDB", "API Gateway"],
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Security & Compliance",
-      description: "Automated security scanning and compliance checks",
-      image: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["AWS Security Hub", "Terraform", "SIEM", "Compliance"],
-      featured: false
+      tech: ["Grafana", "Prometheus", "ELK Stack", "AWS"]
     }
   ];
 
@@ -184,24 +164,22 @@ const Projects: React.FC = () => {
           </span>
         </h2>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={containerRef} className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {projects.map((project) => (
             <div
               key={project.id}
-              className={`project-card group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/20 ${
-                project.featured ? 'md:col-span-2 lg:col-span-1' : ''
-              }`}
+              className="project-card group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/20"
             >
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
               </div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-4 space-y-3">
                 <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
                 </h3>
@@ -221,15 +199,10 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="flex justify-between items-center pt-4">
+                <div className="pt-3">
                   <button className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-300">
-                    <GithubLogo size={20} weight="light" />
+                    <GithubLogo size={18} weight="light" />
                     <span className="text-sm">View Code</span>
-                  </button>
-                  
-                  <button className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-300">
-                    <span className="text-sm">Live Demo</span>
-                    <ArrowUpRight size={20} weight="light" />
                   </button>
                 </div>
               </div>
