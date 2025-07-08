@@ -226,7 +226,7 @@ const About: React.FC = () => {
 
   return (
     <section ref={aboutRef} className="py-20 bg-gray-900 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Content */}
           <div ref={textRef} className="space-y-8 order-2 md:order-1">
