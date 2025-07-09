@@ -1,10 +1,101 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Education: React.FC = () => {
+  const educationRef = useRef<HTMLDivElement>(null);
+  const orb1Ref = useRef<HTMLDivElement>(null);
+  const orb2Ref = useRef<HTMLDivElement>(null);
+  const orb3Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Title fade-in animation
+      gsap.fromTo(".education-title", 
+        { y: 40, opacity: 0, filter: "blur(5px)" },
+        {
+          y: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: educationRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Cards fade-in animation
+      gsap.fromTo(".education-card", 
+        { y: 60, opacity: 0, scale: 0.9 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: educationRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Floating orbs animations
+      gsap.to(orb1Ref.current, {
+        y: -30,
+        x: 25,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(orb2Ref.current, {
+        y: -40,
+        x: -20,
+        duration: 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 1
+      });
+
+      gsap.to(orb3Ref.current, {
+        y: -25,
+        x: 30,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 2
+      });
+
+    }, educationRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-light text-white text-center mb-16">
+    <section ref={educationRef} className="py-20 bg-gray-900 relative overflow-hidden">
+      {/* Floating Orbs */}
+      <div ref={orb1Ref} className="absolute top-28 left-16 w-4 h-4 bg-green-500 rounded-full blur-sm opacity-60 shadow-lg shadow-green-500/50" />
+      <div ref={orb2Ref} className="absolute top-56 right-20 w-3 h-3 bg-blue-500 rounded-full blur-sm opacity-50 shadow-lg shadow-blue-500/50" />
+      <div ref={orb3Ref} className="absolute bottom-36 left-1/4 w-5 h-5 bg-purple-400 rounded-full blur-sm opacity-70 shadow-lg shadow-purple-400/50" />
+
+      {/* Background ambient effects */}
+      <div className="absolute top-20 left-10 w-2 h-2 bg-green-400 rounded-full opacity-30 animate-pulse" />
+      <div className="absolute bottom-32 right-16 w-3 h-3 bg-blue-400 rounded-full opacity-40 animate-bounce" />
+      <div className="absolute top-1/2 left-8 w-1 h-1 bg-purple-400 rounded-full opacity-50 animate-ping" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <h2 className="education-title text-4xl md:text-5xl font-light text-white text-center mb-16">
           Education & {' '}
           <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
             Certifications
@@ -13,7 +104,7 @@ const Education: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Education Section */}
-          <div className="bg-white/5 border border-white/10 rounded-xl p-8">
+          <div className="education-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 hover:border-green-500/50 transition-all duration-500">
             <h3 className="text-2xl font-semibold text-white mb-6">Education</h3>
             
             <div className="space-y-6">
@@ -33,7 +124,7 @@ const Education: React.FC = () => {
           </div>
 
           {/* Certifications Section */}
-          <div className="bg-white/5 border border-white/10 rounded-xl p-8">
+          <div className="education-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 hover:border-blue-500/50 transition-all duration-500">
             <h3 className="text-2xl font-semibold text-white mb-6">Certifications</h3>
             
             <div className="space-y-6">
