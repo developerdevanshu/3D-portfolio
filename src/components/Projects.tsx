@@ -17,10 +17,9 @@ const Projects: React.FC = () => {
   const orb6Ref = useRef<HTMLDivElement>(null);
   const orb7Ref = useRef<HTMLDivElement>(null);
   const orb8Ref = useRef<HTMLDivElement>(null);
+
   const astronautRef = useRef<HTMLDivElement>(null);
-  const rocketRef = useRef<HTMLDivElement>(null);
   const [astronautData, setAstronautData] = useState(null);
-  const [rocketData, setRocketData] = useState(null);
 
   const projects = [
     {
@@ -62,12 +61,6 @@ const Projects: React.FC = () => {
       .then(data => setAstronautData(data))
       .catch(error => console.log('Astronaut animation loading failed:', error));
 
-    // Load rocket animation
-    fetch('/rocket-project.json')
-      .then(response => response.json())
-      .then(data => setRocketData(data))
-      .catch(error => console.log('Rocket animation loading failed:', error));
-
     const ctx = gsap.context(() => {
       // Title animation
       gsap.fromTo(".projects-title", 
@@ -87,19 +80,22 @@ const Projects: React.FC = () => {
       );
 
       // Cards stagger animation
+      gsap.set(".project-card", { force3D: true, transformOrigin: "center center" });
       gsap.fromTo(".project-card", 
-        { y: 60, opacity: 0, scale: 0.9 },
+        { y: 60, opacity: 0, scale: 0.9, rotationX: 0.01 },
         {
           y: 0,
           opacity: 1,
           scale: 1,
+          rotationX: 0,
           duration: 0.8,
           ease: "power3.out",
           stagger: 0.15,
+          force3D: true,
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none none"
           }
         }
       );
@@ -192,44 +188,62 @@ const Projects: React.FC = () => {
         delay: 4
       });
 
+
+
+
+
       // Very slow astronaut floating animation
       if (astronautRef.current) {
         const tl = gsap.timeline({ repeat: -1 });
         
         tl.to(astronautRef.current, {
-          x: window.innerWidth * 0.6,
-          y: -150,
+          x: window.innerWidth * 0.2,
+          y: 50,
           rotation: 15,
-          duration: 25,
-          ease: "power1.inOut"
+          duration: 45,
+          ease: "sine.inOut"
         })
         .to(astronautRef.current, {
           x: window.innerWidth * 0.8,
-          y: 100,
+          y: 150,
           rotation: -10,
-          duration: 30,
-          ease: "power1.inOut"
+          duration: 50,
+          ease: "sine.inOut"
         })
         .to(astronautRef.current, {
-          x: window.innerWidth * 0.2,
-          y: 200,
+          x: window.innerWidth * 0.1,
+          y: 100,
           rotation: 20,
-          duration: 28,
-          ease: "power1.inOut"
+          duration: 48,
+          ease: "sine.inOut"
         })
         .to(astronautRef.current, {
-          x: window.innerWidth * 0.7,
-          y: -100,
+          x: window.innerWidth * 0.9,
+          y: 200,
           rotation: -15,
-          duration: 26,
-          ease: "power1.inOut"
+          duration: 42,
+          ease: "sine.inOut"
+        })
+        .to(astronautRef.current, {
+          x: window.innerWidth * 0.4,
+          y: 80,
+          rotation: 10,
+          duration: 55,
+          ease: "sine.inOut"
+        })
+        .to(astronautRef.current, {
+          x: window.innerWidth * 0.6,
+          y: 120,
+          rotation: -5,
+          duration: 50,
+          ease: "sine.inOut"
         })
         .to(astronautRef.current, {
           x: 0,
           y: 0,
           rotation: 0,
-          duration: 32,
-          ease: "power1.inOut"
+          duration: 60,
+          ease: "sine.inOut"
         });
       }
 
@@ -271,31 +285,14 @@ const Projects: React.FC = () => {
       <div ref={orb7Ref} className="absolute bottom-1/3 left-1/4 w-5 h-5 bg-teal-400 rounded-full blur-sm opacity-65 shadow-lg shadow-teal-400/50" />
       <div ref={orb8Ref} className="absolute top-3/4 right-1/6 w-3 h-3 bg-rose-500 rounded-full blur-sm opacity-55 shadow-lg shadow-rose-500/50" />
 
+
       {/* Additional ambient particles */}
       <div className="absolute top-1/4 right-1/5 w-2 h-2 bg-pink-400 rounded-full opacity-40 animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-yellow-400 rounded-full opacity-50 animate-ping" />
       <div className="absolute top-3/4 left-1/6 w-3 h-3 bg-indigo-400 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '1s' }} />
 
       <div className="max-w-7xl mx-auto px-6 relative z-20">
-        {/* Rocket Animation - Far Left Side */}
-        <div className="absolute -left-32 top-1/2 transform -translate-y-1/2 z-5">
-          {rocketData && (
-            <Lottie 
-              animationData={rocketData}
-              loop={true}
-              autoplay={true}
-              style={{ width: '400px', height: '400px' }}
-              speed={0.2}
-              rendererSettings={{
-                preserveAspectRatio: 'xMidYMid meet',
-                clearCanvas: true,
-                progressiveLoad: false,
-                hideOnTransparent: false,
-                devicePixelRatio: 1
-              }}
-            />
-          )}
-        </div>
+
         <h2 className="projects-title text-4xl md:text-5xl font-light text-white text-center mb-16 relative z-10">
           Featured{' '}
           <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -303,11 +300,12 @@ const Projects: React.FC = () => {
           </span>
         </h2>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 gap-4 max-w-3xl ml-auto mr-16">
+        <div ref={containerRef} className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {projects.map((project) => (
             <div
               key={project.id}
               className="project-card group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/20"
+              style={{ willChange: 'transform, opacity', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
             >
               <div className="relative overflow-hidden">
                 <img 

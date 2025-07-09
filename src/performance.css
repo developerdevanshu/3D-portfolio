@@ -1,0 +1,54 @@
+/* Performance optimizations for low-end devices */
+
+/* Enable hardware acceleration for animations */
+.animate-element {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduce repaints and reflows */
+* {
+  box-sizing: border-box;
+}
+
+/* Optimize transforms */
+[class*="transform"] {
+  will-change: transform;
+}
+
+/* Optimize opacity changes */
+[class*="opacity"] {
+  will-change: opacity;
+}
+
+/* Debounce scroll events */
+.scroll-container {
+  contain: layout style paint;
+}
+
+/* Optimize blur effects */
+[class*="blur"] {
+  transform: translateZ(0);
+}
+
+/* Memory management */
+.lottie-container {
+  contain: strict;
+  transform: translateZ(0);
+}
+
+/* Reduce paint complexity */
+.rounded-full {
+  contain: layout;
+}
+
+/* Optimize gradients */
+[class*="gradient"] {
+  contain: paint;
+}
