@@ -35,6 +35,9 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
           <a href="#projects" className="text-white hover:text-blue-400 transition-all duration-300 font-medium hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">
             Projects
           </a>
+          <a href="#education" className="text-white hover:text-blue-400 transition-all duration-300 font-medium hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">
+            Education
+          </a>
           <a href="#contact" className="text-white hover:text-blue-400 transition-all duration-300 font-medium hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">
             Contact
           </a>
