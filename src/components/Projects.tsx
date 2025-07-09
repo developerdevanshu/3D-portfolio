@@ -18,7 +18,9 @@ const Projects: React.FC = () => {
   const orb7Ref = useRef<HTMLDivElement>(null);
   const orb8Ref = useRef<HTMLDivElement>(null);
   const astronautRef = useRef<HTMLDivElement>(null);
+  const rocketRef = useRef<HTMLDivElement>(null);
   const [astronautData, setAstronautData] = useState(null);
+  const [rocketData, setRocketData] = useState(null);
 
   const projects = [
     {
@@ -59,6 +61,12 @@ const Projects: React.FC = () => {
       .then(response => response.json())
       .then(data => setAstronautData(data))
       .catch(error => console.log('Astronaut animation loading failed:', error));
+
+    // Load rocket animation
+    fetch('/rocket-project.json')
+      .then(response => response.json())
+      .then(data => setRocketData(data))
+      .catch(error => console.log('Rocket animation loading failed:', error));
 
     const ctx = gsap.context(() => {
       // Title animation
@@ -269,14 +277,33 @@ const Projects: React.FC = () => {
       <div className="absolute top-3/4 left-1/6 w-3 h-3 bg-indigo-400 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '1s' }} />
 
       <div className="max-w-7xl mx-auto px-6 relative z-20">
-        <h2 className="projects-title text-4xl md:text-5xl font-light text-white text-center mb-16">
+        {/* Rocket Animation - Far Left Side */}
+        <div className="absolute -left-32 top-1/2 transform -translate-y-1/2 z-5">
+          {rocketData && (
+            <Lottie 
+              animationData={rocketData}
+              loop={true}
+              autoplay={true}
+              style={{ width: '400px', height: '400px' }}
+              speed={0.2}
+              rendererSettings={{
+                preserveAspectRatio: 'xMidYMid meet',
+                clearCanvas: true,
+                progressiveLoad: false,
+                hideOnTransparent: false,
+                devicePixelRatio: 1
+              }}
+            />
+          )}
+        </div>
+        <h2 className="projects-title text-4xl md:text-5xl font-light text-white text-center mb-16 relative z-10">
           Featured{' '}
           <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Projects
           </span>
         </h2>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <div ref={containerRef} className="grid md:grid-cols-2 gap-4 max-w-3xl ml-auto mr-16">
           {projects.map((project) => (
             <div
               key={project.id}
