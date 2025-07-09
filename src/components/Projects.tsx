@@ -23,24 +23,26 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: "AWS Infrastructure Automation",
-      description: "Scalable cloud infrastructure with Terraform and AWS services",
-      image: "https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["AWS", "Terraform", "Docker", "Kubernetes"]
+      title: "Two-Tier EKS Application Architecture",
+      description: "Architected Flask frontend with LoadBalancer service and MySQL ClusterIP configuration on AWS EKS, achieving 99% data availability and 50% deployment complexity reduction",
+      image: "/eks-diagram.png",
+      tech: ["AWS EKS", "Docker", "Flask", "MySQL"],
+      github: "https://github.com/Harshwardhanjadhav0/two-tier-flask-eks.git"
     },
     {
       id: 2,
-      title: "CI/CD Pipeline Platform",
-      description: "Automated deployment pipeline with monitoring and rollback",
-      image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["Jenkins", "Docker", "AWS", "Git"]
+      title: "Infrastructure-as-Code WordPress/MySQL Deployment",
+      description: "Provisioned complete AWS infrastructure using Terraform with automated WordPress installation and secure RDS MySQL connectivity, achieving 100% configuration accuracy",
+      image: "/wordpress-terraform.png",
+      tech: ["Terraform", "AWS Cloud", "WordPress", "MySQL"],
+      github: "https://github.com/Harshwardhanjadhav0/Terraform-and-AWS-Project---Wordpress-Mysql.git"
     },
     {
       id: 3,
-      title: "Microservices Architecture",
-      description: "Containerized microservices with service mesh",
-      image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tech: ["Kubernetes", "Docker", "Istio", "Prometheus"]
+      title: "Serverless Event-Driven Audio Transcription Pipeline",
+      description: "Engineered REST API Gateway with S3-triggered Lambda functions for automated audio-to-text conversion, achieving 85% processing accuracy and 70% reduction in manual configuration",
+      image: "/audio-transcription.webp",
+      tech: ["Terraform", "AWS Lambda", "S3", "API Gateway", "Transcribe", "SNS", "Boto3"]
     },
     {
       id: 4,
@@ -310,10 +312,15 @@ const Projects: React.FC = () => {
                 </div>
 
                 <div className="pt-3">
-                  <button className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                  <a 
+                    href={project.github || '#'} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-300"
+                  >
                     <GithubLogo size={18} weight="light" />
                     <span className="text-sm">View Code</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
