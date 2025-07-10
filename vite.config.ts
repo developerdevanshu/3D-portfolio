@@ -2,14 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
-  const config = {
-    plugins: [react()],
+export default defineConfig({
+  plugins: [react()],
+  base: '/My-Portfolio-Website/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets'
   }
-  
-  if (command === 'build') {
-    config.base = '/My-Portfolio-Website/'
-  }
-  
-  return config
 })
