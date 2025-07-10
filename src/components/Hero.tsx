@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
     document.body.style.overflow = 'hidden';
     
     // Load animation data with better error handling
-    fetch('/animation.json')
+    fetch('./animation.json')
       .then(response => response.json())
       .then(data => setAnimationData(data))
       .catch(error => console.log('Animation loading failed:', error));
@@ -339,7 +339,7 @@ const Hero: React.FC = () => {
               {/* Profile image container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <img 
-                  src="/portfolio.jpg"
+                  src="./portfolio.jpg"
                   alt="Harshwardhan Jadhav"
                   className="relative w-full h-full object-cover rounded-full border-4 border-white/20 shadow-2xl group-hover:scale-105 transition-transform duration-500 z-10"
                 />
@@ -366,7 +366,7 @@ const Hero: React.FC = () => {
                 ref={ctaRef}
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = '/resume.pdf';
+                  link.href = './resume.pdf';
                   link.download = 'Harshwardhan_Jadhav_Resume.pdf';
                   link.click();
                 }}

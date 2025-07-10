@@ -14,67 +14,67 @@ const About: React.FC = () => {
   const tools = [
     { 
       name: 'Docker', 
-      image: '/pngwing.com.png',
+      image: './pngwing.com.png',
       position: { top: '10%', left: '20%' },
       animation: { duration: 4, delay: 0 }
     },
     { 
       name: 'AWS EC2', 
-      image: '/EC2.png',
+      image: './EC2.png',
       position: { top: '26%', left: '5%' },
       animation: { duration: 5, delay: 0 }
     },
     { 
       name: 'Grafana', 
-      image: '/grafana-icon.png',
+      image: './grafana-icon.png',
       position: { bottom: '25%', left: '10%' },
       animation: { duration: 3.5, delay: 0 }
     },
     { 
       name: 'GitHub', 
-      image: '/5847f98fcef1014c0b5e48c0.png',
+      image: './5847f98fcef1014c0b5e48c0.png',
       position: { top: '54%', left: '50%' },
       animation: { duration: 4.5, delay: 0 }
     },
     { 
       name: 'EKS', 
-      image: '/EKS Cloud.png',
+      image: './EKS Cloud.png',
       position: { bottom: '10%', right: '25%' },
       animation: { duration: 3, delay: 0 }
     },
     { 
       name: 'Kubernetes', 
-      image: '/kuberneteslogo.png',
+      image: './kuberneteslogo.png',
       position: { top: '35%', left: '45%' },
       animation: { duration: 4.2, delay: 0 }
     },
     { 
       name: 'ArgoCD', 
-      image: '/argocdlogo.png',
+      image: './argocdlogo.png',
       position: { bottom: '45%', right: '5%' },
       animation: { duration: 3.8, delay: 0 }
     },
     { 
       name: 'AWS', 
-      image: '/amazonCloud.png',
+      image: './amazonCloud.png',
       position: { top: '5%', left: '60%' },
       animation: { duration: 4.3, delay: 0 }
     },
     { 
       name: 'GCP', 
-      image: '/googleCloud.png',
+      image: './googleCloud.png',
       position: { top: '40%', left: '19%' },
       animation: { duration: 3.6, delay: 0 }
     },
     { 
       name: 'Azure', 
-      image: '/azure.png',
+      image: './azure.png',
       position: { bottom: '60%', left: '70%' },
       animation: { duration: 4.1, delay: 0 }
     },
     { 
       name: 'Terraform', 
-      image: '/terraform.png',
+      image: './terraform.png',
       position: { top: '70%', right: '50%' },
       animation: { duration: 3.9, delay: 0 }
     }

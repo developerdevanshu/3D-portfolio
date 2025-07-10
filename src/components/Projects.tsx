@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
       id: 1,
       title: "Two-Tier EKS Application Architecture",
       description: "Architected Flask frontend with LoadBalancer service and MySQL ClusterIP configuration on AWS EKS, achieving 99% data availability and 50% deployment complexity reduction",
-      image: "/eks-diagram.png",
+      image: "./eks-diagram.png",
       tech: ["AWS EKS", "Docker", "Flask", "MySQL"],
       github: "https://github.com/Harshwardhanjadhav0/two-tier-flask-eks.git"
     },
@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
       id: 2,
       title: "Infrastructure-as-Code WordPress/MySQL Deployment",
       description: "Provisioned complete AWS infrastructure using Terraform with automated WordPress installation and secure RDS MySQL connectivity, achieving 100% configuration accuracy",
-      image: "/wordpress-terraform.png",
+      image: "./wordpress-terraform.png",
       tech: ["Terraform", "AWS Cloud", "WordPress", "MySQL"],
       github: "https://github.com/Harshwardhanjadhav0/Terraform-and-AWS-Project---Wordpress-Mysql.git"
     },
@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Serverless Event-Driven Audio Transcription Pipeline",
       description: "Engineered REST API Gateway with S3-triggered Lambda functions for automated audio-to-text conversion, achieving 85% processing accuracy and 70% reduction in manual configuration",
-      image: "/audio-transcription.webp",
+      image: "./audio-transcription.webp",
       tech: ["Terraform", "AWS Lambda", "S3", "API Gateway", "Transcribe", "SNS", "Boto3"]
     },
     {
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
 
   useEffect(() => {
     // Load astronaut animation
-    fetch('/astronaut.json')
+    fetch('./astronaut.json')
       .then(response => response.json())
       .then(data => setAstronautData(data))
       .catch(error => console.log('Astronaut animation loading failed:', error));

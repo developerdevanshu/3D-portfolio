@@ -133,7 +133,7 @@ const Education: React.FC = () => {
                 <p className="text-gray-300 mb-2">Amazon Web Services (AWS)</p>
                 <p className="text-green-400 font-medium mb-3">Nov 2024 – Nov 2027</p>
                 <a 
-                  href="/aws-certificate.pdf" 
+                  href="./aws-certificate.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 text-sm"
@@ -147,7 +147,7 @@ const Education: React.FC = () => {
                 <p className="text-gray-300 mb-2">From Basics to Advanced Workflows</p>
                 <p className="text-green-400 font-medium mb-3">Completed</p>
                 <a 
-                  href="/git-github-certificate.pdf" 
+                  href="./git-github-certificate.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-purple-400 hover:text-purple-300 text-sm"
