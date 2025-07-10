@@ -18,8 +18,7 @@ const Projects: React.FC = () => {
   const orb7Ref = useRef<HTMLDivElement>(null);
   const orb8Ref = useRef<HTMLDivElement>(null);
 
-  const astronautRef = useRef<HTMLDivElement>(null);
-  const [astronautData, setAstronautData] = useState(null);
+
 
   const projects = [
     {
@@ -55,11 +54,7 @@ const Projects: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Load astronaut animation
-    fetch('./astronaut.json')
-      .then(response => response.json())
-      .then(data => setAstronautData(data))
-      .catch(error => console.log('Astronaut animation loading failed:', error));
+
 
     const ctx = gsap.context(() => {
       // Title animation
@@ -192,60 +187,7 @@ const Projects: React.FC = () => {
 
 
 
-      // Very slow astronaut floating animation
-      if (astronautRef.current) {
-        const tl = gsap.timeline({ repeat: -1 });
-        
-        tl.to(astronautRef.current, {
-          x: window.innerWidth * 0.2,
-          y: 50,
-          rotation: 15,
-          duration: 45,
-          ease: "sine.inOut"
-        })
-        .to(astronautRef.current, {
-          x: window.innerWidth * 0.8,
-          y: 150,
-          rotation: -10,
-          duration: 50,
-          ease: "sine.inOut"
-        })
-        .to(astronautRef.current, {
-          x: window.innerWidth * 0.1,
-          y: 100,
-          rotation: 20,
-          duration: 48,
-          ease: "sine.inOut"
-        })
-        .to(astronautRef.current, {
-          x: window.innerWidth * 0.9,
-          y: 200,
-          rotation: -15,
-          duration: 42,
-          ease: "sine.inOut"
-        })
-        .to(astronautRef.current, {
-          x: window.innerWidth * 0.4,
-          y: 80,
-          rotation: 10,
-          duration: 55,
-          ease: "sine.inOut"
-        })
-        .to(astronautRef.current, {
-          x: window.innerWidth * 0.6,
-          y: 120,
-          rotation: -5,
-          duration: 50,
-          ease: "sine.inOut"
-        })
-        .to(astronautRef.current, {
-          x: 0,
-          y: 0,
-          rotation: 0,
-          duration: 60,
-          ease: "sine.inOut"
-        });
-      }
+
 
 
 
@@ -256,25 +198,7 @@ const Projects: React.FC = () => {
 
   return (
     <section ref={projectsRef} className="py-20 bg-gray-900 relative overflow-hidden">
-      {/* Floating Astronaut Animation - Full Page Coverage */}
-      <div ref={astronautRef} className="fixed inset-0 pointer-events-none z-[1] opacity-60">
-        {astronautData && (
-          <Lottie 
-            animationData={astronautData}
-            loop={true}
-            autoplay={true}
-            style={{ width: '500px', height: '500px' }}
-            speed={0.1}
-            rendererSettings={{
-              preserveAspectRatio: 'xMidYMid meet',
-              clearCanvas: false,
-              progressiveLoad: false,
-              hideOnTransparent: false,
-              devicePixelRatio: window.devicePixelRatio || 1
-            }}
-          />
-        )}
-      </div>
+
       {/* Floating Orbs */}
       <div ref={orb1Ref} className="absolute top-32 left-16 w-4 h-4 bg-blue-500 rounded-full blur-sm opacity-60 shadow-lg shadow-blue-500/50" />
       <div ref={orb2Ref} className="absolute top-64 right-24 w-3 h-3 bg-purple-500 rounded-full blur-sm opacity-50 shadow-lg shadow-purple-500/50" />

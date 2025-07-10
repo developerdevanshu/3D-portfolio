@@ -365,10 +365,7 @@ const Hero: React.FC = () => {
               <button
                 ref={ctaRef}
                 onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = './resume.pdf';
-                  link.download = 'Harshwardhan_Jadhav_Resume.pdf';
-                  link.click();
+                  window.open('./resume.pdf', '_blank');
                 }}
                 className="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-500 shadow-lg hover:shadow-xl transform hover:scale-105 hover:px-12 peer"
                 style={{
