@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [astronautData, setAstronautData] = useState(null);
+  const [heroAnimationData, setHeroAnimationData] = useState(null);
   const astronautRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,6 +31,12 @@ function App() {
       .then(response => response.json())
       .then(data => setAstronautData(data))
       .catch(error => console.log('Astronaut animation loading failed:', error));
+
+    // Load hero background animation for footer
+    fetch('./animation.json')
+      .then(response => response.json())
+      .then(data => setHeroAnimationData(data))
+      .catch(error => console.log('Hero animation loading failed:', error));
 
     if (!isLoading && astronautRef.current) {
       // Seamless continuous astronaut animation
@@ -95,13 +102,13 @@ function App() {
         
         {/* Global Astronaut Animation */}
         {!isLoading && (
-          <div ref={astronautRef} className="fixed pointer-events-none z-[1]" style={{ top: '40%', left: '10%', transform: 'translate(-50%, -50%)' }}>
+          <div ref={astronautRef} className="fixed pointer-events-none z-[1] opacity-40" style={{ top: '50%', left: '0%' }}>
             {astronautData && (
               <Lottie 
                 animationData={astronautData}
                 loop={true}
                 autoplay={true}
-                style={{ width: '400px', height: '400px' }}
+                style={{ width: '500px', height: '500px' }}
                 speed={0.1}
                 rendererSettings={{
                   preserveAspectRatio: 'xMidYMid meet',
