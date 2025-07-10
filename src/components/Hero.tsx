@@ -128,64 +128,69 @@ const Hero: React.FC = () => {
       });
     }
 
-    // Visible floating animations with independent ranges
+    // Profile picture style floating for all text elements
     gsap.to(headingRef.current, {
-      y: -8,
-      x: 3,
-      duration: 8,
+      y: 5,
+      x: 2,
+      rotation: 1,
+      duration: 5,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
-      delay: 0
+      ease: "power1.inOut"
     });
 
     gsap.to(jobTitleRef.current, {
-      y: 6,
-      x: -2,
-      duration: 7,
+      y: 4,
+      x: -1.5,
+      rotation: -0.8,
+      duration: 5.5,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
+      ease: "power1.inOut",
       delay: 1
     });
 
     gsap.to(contactRef.current, {
-      y: 10,
-      x: 4,
-      duration: 9,
+      y: 6,
+      x: 2.5,
+      rotation: 1.2,
+      duration: 4.8,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
+      ease: "power1.inOut",
       delay: 2
     });
 
     gsap.to(subtitleRef.current, {
-      y: -5,
-      x: -3,
-      duration: 8.5,
+      y: 3,
+      x: -2,
+      rotation: -1,
+      duration: 5.2,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
+      ease: "power1.inOut",
       delay: 3
     });
 
     gsap.to(ctaRef.current, {
-      y: 7,
-      x: 2,
-      duration: 7.5,
+      y: 4.5,
+      x: 1.8,
+      rotation: 0.9,
+      duration: 4.5,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
+      ease: "power1.inOut",
       delay: 4
     });
 
     gsap.to(linkedinRef.current, {
-      y: -6,
-      x: -4,
-      duration: 8.2,
+      y: 3.5,
+      x: -1.2,
+      rotation: -0.7,
+      duration: 5.8,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
+      ease: "power1.inOut",
       delay: 5
     });
 
