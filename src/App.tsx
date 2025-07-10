@@ -45,45 +45,59 @@ function App() {
       const tl = gsap.timeline({ repeat: -1 });
       
       tl.to(astronautRef.current, {
-        x: window.innerWidth * 0.3,
-        y: -80,
-        rotation: 15,
-        duration: 25,
-        ease: "sine.inOut"
-      })
-      .to(astronautRef.current, {
         x: window.innerWidth * 0.7,
-        y: 60,
-        rotation: -10,
-        duration: 30,
+        y: -200,
+        rotation: 20,
+        duration: 12,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
         x: window.innerWidth * 0.2,
-        y: 120,
-        rotation: 20,
-        duration: 28,
+        y: 150,
+        rotation: -15,
+        duration: 14,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
         x: window.innerWidth * 0.8,
-        y: -40,
-        rotation: -15,
-        duration: 26,
+        y: 300,
+        rotation: 25,
+        duration: 13,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
-        x: window.innerWidth * 0.4,
-        y: 80,
-        rotation: 10,
-        duration: 32,
+        x: window.innerWidth * 0.1,
+        y: -150,
+        rotation: -20,
+        duration: 11,
+        ease: "sine.inOut"
+      })
+      .to(astronautRef.current, {
+        x: window.innerWidth * 0.6,
+        y: 250,
+        rotation: 18,
+        duration: 15,
+        ease: "sine.inOut"
+      })
+      .to(astronautRef.current, {
+        x: window.innerWidth * 0.3,
+        y: -100,
+        rotation: -12,
+        duration: 10,
+        ease: "sine.inOut"
+      })
+      .to(astronautRef.current, {
+        x: window.innerWidth * 0.9,
+        y: 200,
+        rotation: 22,
+        duration: 16,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
         x: 0,
         y: 0,
         rotation: 0,
-        duration: 35,
+        duration: 18,
         ease: "sine.inOut"
       });
     }
@@ -102,7 +116,7 @@ function App() {
         
         {/* Global Astronaut Animation */}
         {!isLoading && (
-          <div ref={astronautRef} className="fixed pointer-events-none z-[1] opacity-40" style={{ top: '50%', left: '0%' }}>
+          <div ref={astronautRef} className="fixed pointer-events-none z-[5] opacity-60" style={{ top: '50%', left: '0%' }}>
             {astronautData && (
               <Lottie 
                 animationData={astronautData}
