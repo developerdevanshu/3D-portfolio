@@ -32,56 +32,51 @@ function App() {
       .catch(error => console.log('Astronaut animation loading failed:', error));
 
     if (!isLoading && astronautRef.current) {
-      // Global astronaut animation across all pages
+      // Seamless continuous astronaut animation
+      gsap.set(astronautRef.current, { x: 0, y: 0, rotation: 0 });
+      
       const tl = gsap.timeline({ repeat: -1 });
       
       tl.to(astronautRef.current, {
-        x: window.innerWidth * 0.2,
-        y: 50,
+        x: window.innerWidth * 0.3,
+        y: -80,
         rotation: 15,
-        duration: 45,
+        duration: 25,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
         x: window.innerWidth * 0.7,
-        y: 150,
+        y: 60,
         rotation: -10,
-        duration: 50,
+        duration: 30,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
-        x: window.innerWidth * 0.1,
-        y: 100,
+        x: window.innerWidth * 0.2,
+        y: 120,
         rotation: 20,
-        duration: 48,
+        duration: 28,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
-        x: window.innerWidth * 0.9,
-        y: 200,
+        x: window.innerWidth * 0.8,
+        y: -40,
         rotation: -15,
-        duration: 42,
+        duration: 26,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
         x: window.innerWidth * 0.4,
         y: 80,
         rotation: 10,
-        duration: 55,
-        ease: "sine.inOut"
-      })
-      .to(astronautRef.current, {
-        x: window.innerWidth * 0.6,
-        y: 120,
-        rotation: -5,
-        duration: 50,
+        duration: 32,
         ease: "sine.inOut"
       })
       .to(astronautRef.current, {
         x: 0,
         y: 0,
         rotation: 0,
-        duration: 60,
+        duration: 35,
         ease: "sine.inOut"
       });
     }
@@ -100,13 +95,13 @@ function App() {
         
         {/* Global Astronaut Animation */}
         {!isLoading && (
-          <div ref={astronautRef} className="fixed pointer-events-none z-[1]" style={{ top: '50%', left: '0%' }}>
+          <div ref={astronautRef} className="fixed pointer-events-none z-[1]" style={{ top: '40%', left: '10%', transform: 'translate(-50%, -50%)' }}>
             {astronautData && (
               <Lottie 
                 animationData={astronautData}
                 loop={true}
                 autoplay={true}
-                style={{ width: '500px', height: '500px' }}
+                style={{ width: '400px', height: '400px' }}
                 speed={0.1}
                 rendererSettings={{
                   preserveAspectRatio: 'xMidYMid meet',
@@ -124,7 +119,7 @@ function App() {
         <section id="projects"><Projects /></section>
         <section id="education"><Education /></section>
         <section id="contact"><Contact /></section>
-        <Footer />
+        <Footer heroAnimationData={heroAnimationData} />
       </div>
     </div>
   );

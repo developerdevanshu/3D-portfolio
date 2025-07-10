@@ -6,17 +6,26 @@ import Lottie from 'lottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  heroAnimationData?: any;
+}
+
+const Footer: React.FC<FooterProps> = ({ heroAnimationData }) => {
   const footerRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
-    // Load animation data
-    fetch('/animation.json')
-      .then(response => response.json())
-      .then(data => setAnimationData(data))
-      .catch(error => console.log('Animation loading failed:', error));
+    // Use hero animation data if provided
+    if (heroAnimationData) {
+      setAnimationData(heroAnimationData);
+    } else {
+      // Load animation data
+      fetch('./animation.json')
+        .then(response => response.json())
+        .then(data => setAnimationData(data))
+        .catch(error => console.log('Animation loading failed:', error));
+    }
 
     const ctx = gsap.context(() => {
       // Smooth footer animation
