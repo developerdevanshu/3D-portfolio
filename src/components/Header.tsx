@@ -42,7 +42,7 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
             Contact
           </a>
           <button 
-            onClick={() => window.open('./resume.pdf', '_blank')}
+          
             className="px-4 py-2 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 font-medium hover:shadow-[0_0_15px_rgba(59,130,246,0.6)]"
           >
             Resume

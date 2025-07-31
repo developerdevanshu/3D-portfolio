@@ -109,16 +109,16 @@ const Education: React.FC = () => {
             
             <div className="space-y-6">
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                <h4 className="text-xl font-semibold text-green-400 mb-2">Bachelor of Computer Applications (BCA)</h4>
-                <p className="text-gray-300 mb-2">Vidyadhan College, BAMU University</p>
-                <p className="text-gray-400 text-sm mb-2">Chh.Sambhajinagar, Maharashtra</p>
-                <p className="text-blue-400 font-medium">Jun 2021 – Jul 2024</p>
+                <h4 className="text-xl font-semibold text-green-400 mb-2">Bachelor of Technology (B.Tech)</h4>
+                <p className="text-gray-300 mb-2">North India Institute Of Technology, AKTU Lucknow</p>
+              
+                <p className="text-blue-400 font-medium">2022 – 2026</p>
               </div>
               
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
-                <h4 className="text-xl font-semibold text-blue-400 mb-2">Master of Computer Applications (MCA)</h4>
-                <p className="text-gray-300 mb-2">Pursuing</p>
-                <p className="text-blue-400 font-medium">2025 - Ongoing</p>
+                <h4 className="text-xl font-semibold text-blue-400 mb-2">Intermediate</h4>
+                <p className="text-gray-300 mb-2">M.D.S Inter College, Najibabad</p>
+                <p className="text-blue-400 font-medium">2021 - 2022</p>
               </div>
             </div>
           </div>
@@ -131,12 +131,9 @@ const Education: React.FC = () => {
               <div className="bg-white/5 border border-white/10 rounded-lg p-6">
                 <h4 className="text-xl font-semibold text-blue-400 mb-2">AWS Solutions Architect - Associate</h4>
                 <p className="text-gray-300 mb-2">Amazon Web Services (AWS)</p>
-                <p className="text-green-400 font-medium mb-3">Nov 2024 – Nov 2027</p>
+
                 <a 
-                  href="./aws-certificate.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 text-sm"
+      
                 >
                   View Certificate
                 </a>
@@ -147,10 +144,7 @@ const Education: React.FC = () => {
                 <p className="text-gray-300 mb-2">From Basics to Advanced Workflows</p>
                 <p className="text-green-400 font-medium mb-3">Completed</p>
                 <a 
-                  href="./git-github-certificate.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-purple-400 hover:text-purple-300 text-sm"
+                 
                 >
                   View Certificate
                 </a>

@@ -248,7 +248,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 pt-24">
       {/* Lottie Animated Background */}
       <div className="absolute inset-0 w-full h-full">
         {animationData && (
@@ -292,7 +292,7 @@ const Hero: React.FC = () => {
             >
               Hi, I'm{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">
-                Harshwardhan Jadhav
+                Devanshu Agarwal
               </span>
             </h1>
             
@@ -305,7 +305,7 @@ const Hero: React.FC = () => {
             {/* Contact Info */}
             <div ref={contactRef} className="mb-8 flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
               <p className="text-xl text-blue-400 font-medium">
-                🕿 +91 8668396959
+                🕿 +91 9058189236
               </p>
               <p className="text-lg text-green-400 font-medium flex items-center">
                 <span className="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></span>
@@ -327,10 +327,10 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Profile Picture */}
-          <div className="flex flex-col items-center lg:items-end order-1 lg:order-2">
+          <div className="flex flex-col items-center  object-top lg:items-end order-1 lg:order-2">
             <div 
               ref={profileRef}
-              className="relative group -mt-16 z-10"
+              className="relative group  z-10"
             >
               {/* Outer glowing ring */}
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse" />
@@ -344,7 +344,7 @@ const Hero: React.FC = () => {
               {/* Profile image container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <img 
-                  src="./portfolio.jpg"
+                  src="./portfolio.png"
                   alt="Harshwardhan Jadhav"
                   className="relative w-full h-full object-cover rounded-full border-4 border-white/20 shadow-2xl group-hover:scale-105 transition-transform duration-500 z-10"
                 />
@@ -369,9 +369,7 @@ const Hero: React.FC = () => {
             <div className="flex items-center gap-4 mt-16">
               <button
                 ref={ctaRef}
-                onClick={() => {
-                  window.open('./resume.pdf', '_blank');
-                }}
+               
                 className="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-500 shadow-lg hover:shadow-xl transform hover:scale-105 hover:px-12 peer"
                 style={{
                   boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)",
@@ -385,7 +383,7 @@ const Hero: React.FC = () => {
               
               <a
                 ref={linkedinRef}
-                href="https://www.linkedin.com/in/jadhavharshwardhan/"
+                href="https://www.linkedin.com/in/devanshu-agarwal-b0983a25b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-500 text-blue-400 rounded-full font-medium hover:bg-blue-500 hover:text-white transition-all duration-500 shadow-lg hover:shadow-xl transform hover:scale-105 peer-hover:translate-x-4"

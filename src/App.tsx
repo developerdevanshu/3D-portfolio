@@ -30,9 +30,11 @@ function App() {
   return (
     <div className="App" style={{ scrollBehavior: 'smooth' }}>
       {isLoading && <Preloader onComplete={handleLoadingComplete} />}
+
+      {!isLoading && <Header />}
       
       <div className="scroll-container">
-        {!isLoading && <Header />}
+        
         
 
         <section id="home"><Hero /></section>

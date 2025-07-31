@@ -227,20 +227,20 @@ const Contact: React.FC = () => {
 
             <div className="space-y-4">
               <p className="text-gray-400">
-                <span className="text-blue-400">Email:</span> harshj86683@gmail.com
+                <span className="text-blue-400">Email:</span> devanshuagarwal164@gmail.com
               </p>
               <p className="text-gray-400">
-                <span className="text-blue-400">Contact No.:</span> +91 8668396959
+                <span className="text-blue-400">Contact No.:</span> +91 9058189236
               </p>
               <p className="text-gray-400">
-                <span className="text-blue-400">Location:</span> Maharashtra, India.
+                <span className="text-blue-400">Location:</span> UP, India.
               </p>
             </div>
 
             {/* Social Links */}
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/Harshwardhanjadhav0"
+                href="https://github.com/developerdevanshu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group"
@@ -253,7 +253,7 @@ const Contact: React.FC = () => {
               </a>
               
               <a 
-                href="https://www.linkedin.com/in/jadhavharshwardhan/"
+                href="https://www.linkedin.com/in/devanshu-agarwal-b0983a25b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group"

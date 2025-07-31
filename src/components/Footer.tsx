@@ -104,7 +104,7 @@ const Footer: React.FC<FooterProps> = ({ heroAnimationData }) => {
           <div>
             <h3 className="text-2xl font-light text-white">
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Harshwardhan
+                Devanshu Agarwal
               </span>
             </h3>
             <p className="text-gray-400 text-sm">AWS Cloud & DevOps Engineer</p>
@@ -129,7 +129,7 @@ const Footer: React.FC<FooterProps> = ({ heroAnimationData }) => {
           {/* Social Links */}
           <div className="flex space-x-4">
             <a 
-              href="https://github.com/Harshwardhanjadhav0"
+              href="https://github.com/developerdevanshu"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
@@ -137,7 +137,7 @@ const Footer: React.FC<FooterProps> = ({ heroAnimationData }) => {
               <GithubLogo size={24} weight="light" />
             </a>
             <a 
-              href="https://www.linkedin.com/in/jadhavharshwardhan/"
+              href="https://www.linkedin.com/in/devanshu-agarwal-b0983a25b/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110 transform"
@@ -150,7 +150,7 @@ const Footer: React.FC<FooterProps> = ({ heroAnimationData }) => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-white/10 text-center">
           <p className="text-gray-500 text-sm">
-            © 2024 Harshwardhan Jadhav. All rights reserved.
+            © 2025 Devanshu Agarwal. All rights reserved.
           </p>
         </div>
       </div>
